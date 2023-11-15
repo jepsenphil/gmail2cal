@@ -1,0 +1,14 @@
+version: '3'
+services:
+  web:
+    image: gmail2cal
+    build: .
+    container_name: gmail2cal
+    restart: always
+    environment:
+      - CREDENTIALS={"web":{"client_id":"1037180307223-lctqevig35aqvh40dtiadf703c2vd4ov.apps.googleusercontent.com","project_id":"alien-striker-405018","auth_uri":"https://accounts.google.com/o/oauth2/auth","token_uri":"https://oauth2.googleapis.com/token","auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs","client_secret":"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","redirect_uris":["http://localhost:3000/oauth2callback"]}}
+      - REFRESH_TOKEN_PATH=/app/tokens/token.json
+    volumes:
+      - ./tokens:/app/tokens
+    ports:
+      - "8446:3000"
