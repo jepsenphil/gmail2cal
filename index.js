@@ -153,7 +153,7 @@ function fetchEmails(auth) {
   const currentDate = new Date();
   const year = currentDate.getFullYear();
   const month = (currentDate.getMonth() + 1).toString().padStart(2, '0'); // Months are zero-based
-  const day = new Date(currentDate.setDate(currentDate.getDate() - 2)).getDate().toString().padStart(2, '0');
+  const day = new Date(currentDate.setDate(currentDate.getDate())).getDate().toString().padStart(2, '0');
   const formattedDateString = `${year}/${month}/${day}`;
   // Use Gmail API to fetch emails (add your own query parameters)
   const query = `from:hello@freshprep.ca after:${formattedDateString}`; // Replace yyyy/mm/dd with your desired date range
